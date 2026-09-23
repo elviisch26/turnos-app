@@ -1,0 +1,15 @@
+/*
+ * Este es un archivo de manifiesto que se compila en application.css e incluye todos los archivos
+ * listados a continuación.
+ *
+ * Cualquier archivo CSS (y SCSS, si está configurado) dentro de este directorio, lib/assets/stylesheets o cualquier
+ * directorio vendor/assets/stylesheets de un plugin puede referenciarse aquí mediante una ruta relativa.
+ *
+ * Es posible agregar estilos globales de la aplicación a este archivo; aparecen al final del
+ * archivo compilado, por lo que los estilos aquí agregados tienen prioridad sobre los estilos definidos en cualquier otro CSS
+ * de este directorio. Los estilos de este archivo deben agregarse después de la última sentencia require_*.
+ * En general, es preferible crear un archivo nuevo por cada ámbito de estilos.
+ *
+ *= require_tree .
+ *= require_self
+ */

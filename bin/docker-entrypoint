@@ -1,0 +1,8 @@
+#!/bin/bash -e
+
+# Si se ejecuta el servidor Rails, crear o migrar la base de datos existente
+if [ "${1}" == "./bin/rails" ] && [ "${2}" == "server" ]; then
+  ./bin/rails db:prepare
+fi
+
+exec "${@}"

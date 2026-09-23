@@ -1,0 +1,2 @@
+---
+BUNDLE_BUILD__MYSQL2: "--with-mysql-include=C:/PROGRA~1/MySQL/MYSQLS~1.4/include --with-mysql-lib=C:/mysql2-build/lib"

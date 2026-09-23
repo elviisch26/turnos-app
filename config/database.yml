@@ -1,0 +1,54 @@
+# MySQL. Admitir las versiones 5.5.8 y superiores.
+#
+# Instalar el controlador de MySQL
+#   gem install mysql2
+#
+# Verificar que la gema de MySQL esté definida en el Gemfile
+#   gem "mysql2"
+#
+# Verificar el uso de hash de contraseñas de estilo nuevo:
+#   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
+#
+default: &default
+  adapter: mysql2
+  encoding: utf8mb4
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password: turnos-app
+  host: localhost
+
+development:
+  <<: *default
+  database: turnos_app_development
+
+# Advertencia: la base definida como "test" se elimina y
+# se regenera desde desarrollo al ejecutar "rake".
+# No definir esta base con el mismo valor que desarrollo o producción.
+test:
+  <<: *default
+  database: turnos_app_test
+
+# Como con config/credentials.yml, nunca guardar información sensible,
+# como la contraseña de la base, en el código fuente. Si el código es visible,
+# el acceso a la base queda expuesto.
+#
+# En su lugar, pasar la contraseña o la URL completa de conexión como variable
+# de entorno al iniciar la aplicación. Por ejemplo:
+#
+#   DATABASE_URL="mysql2://myuser:mypass@localhost/somedatabase"
+#
+# Si la URL de conexión se encuentra en la variable especial DATABASE_URL,
+# Rails combina esos valores con los de este archivo. Alternativa: especificar
+# una URL de conexión explícita:
+#
+#   production:
+#     url: <%= ENV["MY_APP_DATABASE_URL"] %>
+#
+# Leer https://guides.rubyonrails.org/configuring.html#configuring-a-database
+# para una guía completa de configuración de base de datos.
+#
+production:
+  <<: *default
+  database: turnos_app_production
+  username: turnos_app
+  password: <%= ENV["TURNOS_APP_DATABASE_PASSWORD"] %>

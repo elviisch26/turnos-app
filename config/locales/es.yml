@@ -1,0 +1,35 @@
+# Traducciones al español neutro para nombres de atributos.
+# Permitir mensajes de validación totalmente en español
+# manteniendo identificadores en inglés por convención Rails.
+es:
+  activerecord:
+    models:
+      business: "negocio"
+      service: "servicio"
+      slot: "horario"
+      appointment: "reserva"
+      waitlist_entry: "entrada de lista de espera"
+    attributes:
+      business:
+        name: "nombre"
+        time_zone: "zona horaria"
+      service:
+        business: "negocio"
+        name: "nombre"
+        duration_min: "duración (min)"
+        capacity: "capacidad"
+      slot:
+        service: "servicio"
+        starts_at: "hora de inicio"
+        ends_at: "hora de fin"
+        capacity: "capacidad"
+      appointment:
+        slot: "horario"
+        customer_name: "nombre del cliente"
+        customer_email: "correo del cliente"
+        status: "estado"
+      waitlist_entry:
+        slot: "horario"
+        customer_name: "nombre del cliente"
+        customer_email: "correo del cliente"
+        position: "posición"

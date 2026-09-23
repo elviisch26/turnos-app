@@ -1,0 +1,31 @@
+# Los archivos del directorio config/locales se utilizan para internacionalización y
+# Rails los carga automáticamente. Para utilizar locales distintos del
+# inglés, agregar los archivos necesarios en este directorio.
+#
+# Para utilizar los locales, usar `I18n.t`:
+#
+#     I18n.t "hello"
+#
+# En las vistas, esto se abrevia como `t`:
+#
+#     <%= t("hello") %>
+#
+# Para utilizar un locale diferente, definirlo con `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# Esto utilizaría la información de config/locales/es.yml.
+#
+# Para más información sobre la API, leer la guía de Internacionalización de Rails
+# en https://guides.rubyonrails.org/i18n.html.
+#
+# Tener en cuenta que YAML interpreta las siguientes cadenas sin distinción de mayúsculas
+# como booleanos: `true`, `false`, `on`, `off`, `yes`, `no`. Por lo tanto, estas cadenas
+# deben entrecomillarse para interpretarse como cadenas. Por ejemplo:
+#
+#     en:
+#       "yes": yup
+#       enabled: "ON"
+
+en:
+  hello: "Hola mundo"

@@ -1,0 +1,80 @@
+# Se ignoran las dependencias instaladas por Bundler.
+# No se versionan porque se instalan con `bundle install`.
+.bundle/
+vendor/bundle/
+
+# Se ignoran los archivos de registro generados en tiempo de ejecucion.
+/log/*
+!/log/.keep
+
+# Se ignoran los archivos temporales (cache, sockets, pids).
+# No se versionan porque se generan localmente en cada entorno.
+/tmp/*
+!/tmp/.keep
+
+# Se ignora el almacenamiento local de Active Storage.
+# No se versiona porque contiene archivos subidos por usuarios.
+/storage/*
+!/storage/.keep
+
+# Se ignora la llave maestra de credenciales.
+# No se versiona porque permite descifrar `credentials.yml.enc`.
+/config/master.key
+config/master.key
+
+# Se ignoran las llaves de credenciales por entorno.
+# No se versionan porque cada entorno gestiona sus propios secretos.
+config/credentials/*.key
+
+# Se ignoran las variables de entorno locales.
+# No se versionan porque contienen secretos especificos de cada maquina.
+.env*
+!.env.example
+
+# Se ignoran los assets compilados y los packs de Webpacker/Shakapacker.
+# No se versionan porque se generan durante el despliegue o la compilacion.
+/public/assets
+/public/packs
+/public/packs-test
+
+# Se ignoran las dependencias de JavaScript.
+# No se versionan porque se instalan con `npm install` o `yarn install`.
+node_modules/
+yarn-error.log
+.yarn-integrity
+package-lock.json
+yarn.lock
+
+# Se ignoran los archivos del editor y del sistema operativo.
+# No se versionan porque son especificos de cada puesto de trabajo.
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Se ignoran los archivos de historial de depuracion.
+# No se versionan porque solo reflejan el uso local de la consola.
+.byebug_history
+.irb_history
+.rdbg_history
+
+# Se ignoran los volcados de base de datos y los backups locales.
+# No se versionan porque pueden contener datos sensibles.
+*.dump
+*.sql
+db/*.sqlite3
+db/*.sqlite3-journal
+db/*.sqlite3-shm
+db/*.sqlite3-wal
+
+# Se ignoran los archivos de cobertura de pruebas.
+# No se versionan porque se regeneran en cada ejecucion.
+coverage/
+.simplecov
+
+# Se ignora el socket de Spring.
+# No se versiona porque es un artefacto del preloader local.
+.spring/
