@@ -1,0 +1,6 @@
+<%# Mostrar errores de validación en el formulario de espera. %>
+<%= turbo_stream.replace "waitlist_form" do %>
+  <%= turbo_frame_tag "waitlist_form" do %>
+    <%= render "slots/waitlist_form", slot: @slot, waitlist_entry: @waitlist_entry %>
+  <% end %>
+<% end %>

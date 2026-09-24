@@ -1,0 +1,12 @@
+<%# Mostrar aviso de horario completo e invitar a la lista de espera. %>
+<%= turbo_stream.replace "booking_flash" do %>
+  <%= turbo_frame_tag "booking_flash" do %>
+    <p role="alert" class="flash-error">El horario está completo. Anotarse en la lista de espera.</p>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.replace "waitlist_list" do %>
+  <%= turbo_frame_tag "waitlist_list" do %>
+    <%= render "slots/waitlist", slot: @slot %>
+  <% end %>
+<% end %>

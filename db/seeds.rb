@@ -9,12 +9,12 @@ end
 # Crear servicios de ejemplo.
 corte = business.services.find_or_create_by!(name: "Corte de cabello") do |record|
   record.duration_min = 30
-  record.capacity = 1
+  record.capacity = 3
 end
 
 barba = business.services.find_or_create_by!(name: "Arreglo de barba") do |record|
   record.duration_min = 20
-  record.capacity = 2
+  record.capacity = 4
 end
 
 # Crear 5 slots futuros a partir de mañana a las 9:00.

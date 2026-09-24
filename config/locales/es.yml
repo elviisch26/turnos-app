@@ -2,6 +2,9 @@
 # Permitir mensajes de validación totalmente en español
 # manteniendo identificadores en inglés por convención Rails.
 es:
+  time:
+    formats:
+      short: "%d/%m/%Y %H:%M"
   activerecord:
     models:
       business: "negocio"

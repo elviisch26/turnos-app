@@ -1,0 +1,11 @@
+<%# Listar entradas de espera en orden de posición. %>
+<% entries = slot.waitlist_entries.order(:position) %>
+<% if entries.empty? %>
+  <p class="text-sm text-stone-500">No existir anotaciones en espera.</p>
+<% else %>
+  <ol class="space-y-2">
+    <% entries.each do |entry| %>
+      <li class="rounded-lg border border-stone-100 bg-stone-50 px-3 py-2 text-sm text-stone-700"><%= entry.customer_name %> (<%= entry.customer_email %>)</li>
+    <% end %>
+  </ol>
+<% end %>

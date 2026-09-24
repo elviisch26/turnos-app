@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+/*
+ * Entrada de Tailwind CSS para la aplicación.
+ * Compilar una vez con:      bin/rails tailwindcss:build
+ * Observar cambios en dev:   bin/rails tailwindcss:watch
+ * La salida compilada queda en app/assets/builds/tailwind.css
+ * y se sirve mediante stylesheet_link_tag "tailwind" en el layout.
+ */
+
+@layer base {
+  body {
+    @apply bg-stone-50 font-sans text-stone-800 antialiased;
+  }
+
+  h1 {
+    @apply text-2xl font-bold tracking-tight text-stone-900;
+  }
+
+  h2 {
+    @apply text-xl font-semibold tracking-tight text-stone-900;
+  }
+
+  h3 {
+    @apply text-lg font-semibold text-stone-900;
+  }
+}
+
+@layer components {
+  /* Superficie de contenido: borde suave y sombra discreta. */
+  .card {
+    @apply rounded-xl border border-stone-200 bg-white p-5 shadow-sm;
+  }
+
+  /* Acciones. */
+  .btn {
+    @apply inline-flex items-center justify-center rounded-lg px-4 py-2 text-sm font-medium transition focus:outline-none focus-visible:ring-2 focus-visible:ring-amber-500 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-primary {
+    @apply bg-amber-600 text-white shadow-sm hover:bg-amber-700 active:bg-amber-800;
+  }
+
+  .btn-secondary {
+    @apply border border-stone-300 bg-white text-stone-700 hover:bg-stone-100 active:bg-stone-200;
+  }
+
+  .btn-danger {
+    @apply border border-red-200 bg-white text-red-600 hover:bg-red-50 active:bg-red-100;
+  }
+
+  /* Campos de formulario (sin el plugin de forms: se estilizan a mano). */
+  .form-label {
+    @apply mb-1 block text-sm font-medium text-stone-700;
+  }
+
+  .form-input {
+    @apply block w-full rounded-lg border border-stone-300 bg-white px-3 py-2 text-sm text-stone-900 shadow-sm placeholder:text-stone-400 focus:border-amber-500 focus:outline-none focus:ring-2 focus:ring-amber-500/40;
+  }
+
+  /* Etiqueta pequeña para datos puntuales (duración, capacidad, etc.). */
+  .badge {
+    @apply inline-flex items-center rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+
+  /* Navegación del encabezado. */
+  .nav-link {
+    @apply rounded-lg px-3 py-2 text-sm font-medium text-stone-600 transition hover:bg-stone-100 hover:text-stone-900;
+  }
+
+  .nav-link-active {
+    @apply bg-amber-50 text-amber-800;
+  }
+
+  .nav-link-active:hover {
+    @apply bg-amber-100 text-amber-900;
+  }
+
+  /* Mensajes de flash del layout y del frame booking_flash. */
+  .flash-success {
+    @apply mb-6 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-sm text-green-800;
+  }
+
+  .flash-error {
+    @apply mb-6 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800;
+  }
+
+  /* Fila de datos dentro de las tarjetas de detalle. */
+  .detail-row {
+    @apply flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-stone-100 py-2 last:border-0 last:pb-0;
+  }
+
+  /* Texto de estado vacío. */
+  .empty-state {
+    @apply rounded-xl border border-dashed border-stone-300 bg-white p-8 text-center text-sm text-stone-500;
+  }
+}

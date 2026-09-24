@@ -1,0 +1,30 @@
+<%# Mostrar un servicio con sus horarios y capacidad restante. %>
+<h1 class="mb-4">Ver servicio</h1>
+
+<div class="card">
+  <p class="detail-row"><strong class="font-semibold text-stone-900">Nombre:</strong> <span><%= @service.name %></span></p>
+  <p class="detail-row"><strong class="font-semibold text-stone-900">Negocio:</strong> <span><%= @service.business.name %></span></p>
+  <p class="detail-row"><strong class="font-semibold text-stone-900">Duración:</strong> <span><%= @service.duration_min %> min</span></p>
+</div>
+
+<h2 class="mb-3 mt-8">Horarios disponibles</h2>
+
+<% if @slots.empty? %>
+  <p class="empty-state">No existir horarios para este servicio.</p>
+<% else %>
+  <ul class="space-y-3">
+    <% @slots.each do |slot| %>
+      <li class="card flex flex-wrap items-center justify-between gap-3 p-4">
+        <div>
+          <%= link_to l(slot.starts_at, format: :short), slot_path(slot), class: "font-medium text-amber-700 hover:underline" %>
+          <p class="mt-0.5 text-sm text-stone-500">capacidad restante: <%= slot.remaining_capacity %> de <%= slot.capacity %></p>
+        </div>
+        <% if slot.full? %>
+          <span class="badge bg-red-100 text-red-700">(completo)</span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<p class="mt-6"><%= link_to "Volver a servicios", services_path, class: "btn btn-secondary" %></p>

@@ -1,0 +1,6 @@
+<%# Mostrar errores de validación en el formulario de reserva. %>
+<%= turbo_stream.replace "booking_form" do %>
+  <%= turbo_frame_tag "booking_form" do %>
+    <%= render "slots/booking_form", slot: @slot, appointment: @appointment %>
+  <% end %>
+<% end %>

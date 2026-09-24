@@ -1,0 +1,21 @@
+<%# Mostrar lista de servicios disponibles. %>
+<div class="mb-6 flex flex-wrap items-center justify-between gap-3">
+  <h1>Ver servicios</h1>
+  <%= link_to "Ver horarios", slots_path, class: "btn btn-secondary" %>
+</div>
+
+<% if @services.empty? %>
+  <p class="empty-state">No existir servicios para mostrar.</p>
+<% else %>
+  <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+    <% @services.each do |service| %>
+      <li class="h-full">
+        <%= link_to service_path(service), class: "card block h-full transition hover:-translate-y-0.5 hover:border-amber-300 hover:shadow-md" do %>
+          <span class="block text-base font-semibold text-stone-900"><%= service.name %></span>
+          <span class="mt-1 block text-sm text-stone-500"><%= service.business.name %></span>
+          <span class="badge mt-3 bg-amber-100 text-amber-800">duración: <%= service.duration_min %> min</span>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% end %>

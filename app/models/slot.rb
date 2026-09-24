@@ -29,6 +29,11 @@ class Slot < ApplicationRecord
     remaining_capacity <= 0
   end
 
+  # Buscar el próximo horario futuro del servicio con capacidad restante.
+  def self.next_available_for(service)
+    service.slots.where("starts_at > ?", Time.current).order(:starts_at).detect { |slot| !slot.full? }
+  end
+
   private
 
   # Verificar que la hora de fin sea posterior a la hora de inicio.

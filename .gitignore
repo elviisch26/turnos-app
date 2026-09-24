@@ -78,3 +78,6 @@ coverage/
 # Se ignora el socket de Spring.
 # No se versiona porque es un artefacto del preloader local.
 .spring/
+
+/app/assets/builds/*
+!/app/assets/builds/.keep

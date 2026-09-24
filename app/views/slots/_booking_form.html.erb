@@ -1,0 +1,34 @@
+<%# Mostrar formulario de reserva con nombre y correo. %>
+<%= form_with model: [slot, appointment], class: "space-y-4" do |form| %>
+  <div>
+    <%= label_tag :service_id, "Servicio", class: "form-label" %>
+    <%= select_tag :service_id,
+                   options_from_collection_for_select(Service.order(:name), :id, :name, slot.service_id),
+                   class: "form-input" %>
+  </div>
+
+  <% if appointment.errors.any? %>
+    <div role="alert" class="rounded-lg border border-red-200 bg-red-50 p-4 text-sm text-red-800">
+      <p class="font-medium">Revisar los datos del formulario:</p>
+      <ul class="mt-2 list-disc space-y-1 pl-5">
+        <% appointment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :customer_name, "Nombre", class: "form-label" %>
+    <%= form.text_field :customer_name, required: true, class: "form-input" %>
+  </div>
+
+  <div>
+    <%= form.label :customer_email, "Correo electrónico", class: "form-label" %>
+    <%= form.email_field :customer_email, required: true, class: "form-input" %>
+  </div>
+
+  <div>
+    <%= form.submit "Reservar", class: "btn btn-primary w-full sm:w-auto" %>
+  </div>
+<% end %>

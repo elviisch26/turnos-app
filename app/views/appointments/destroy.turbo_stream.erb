@@ -1,0 +1,24 @@
+<%# Actualizar capacidad y listas luego de cancelar una reserva. %>
+<%= turbo_stream.replace dom_id(@slot, :capacity) do %>
+  <%= turbo_frame_tag dom_id(@slot, :capacity) do %>
+    <%= render "slots/capacity", slot: @slot %>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.replace "appointments_list" do %>
+  <%= turbo_frame_tag "appointments_list" do %>
+    <%= render "slots/appointments", slot: @slot %>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.replace "waitlist_list" do %>
+  <%= turbo_frame_tag "waitlist_list" do %>
+    <%= render "slots/waitlist", slot: @slot %>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.replace "booking_flash" do %>
+  <%= turbo_frame_tag "booking_flash" do %>
+    <p role="status" class="flash-success">Reserva cancelada correctamente.</p>
+  <% end %>
+<% end %>

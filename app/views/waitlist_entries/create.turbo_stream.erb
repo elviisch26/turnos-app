@@ -1,0 +1,18 @@
+<%# Actualizar lista de espera luego de anotarse. %>
+<%= turbo_stream.replace "waitlist_list" do %>
+  <%= turbo_frame_tag "waitlist_list" do %>
+    <%= render "slots/waitlist", slot: @slot %>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.replace "waitlist_form" do %>
+  <%= turbo_frame_tag "waitlist_form" do %>
+    <%= render "slots/waitlist_form", slot: @slot, waitlist_entry: WaitlistEntry.new %>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.replace "booking_flash" do %>
+  <%= turbo_frame_tag "booking_flash" do %>
+    <p role="status" class="flash-success">Anotación en lista de espera registrada.</p>
+  <% end %>
+<% end %>

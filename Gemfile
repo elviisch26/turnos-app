@@ -26,6 +26,9 @@ gem "stimulus-rails"
 # Crear API JSON con facilidad [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# Compilador de CSS con Tailwind (CLI independiente, sin dependencia de Node)
+gem "tailwindcss-rails"
+
 # Utilizar el adaptador Redis para ejecutar Action Cable en producción
 # gem "redis", ">= 4.0.1"
 

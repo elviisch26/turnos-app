@@ -1,0 +1,55 @@
+<%# Mostrar detalle del horario con capacidad, formularios y listas. %>
+<h1 class="mb-4">Ver horario</h1>
+
+<div class="card mb-6">
+  <p class="detail-row"><strong class="font-semibold text-stone-900">Servicio:</strong> <span><%= @slot.service.name %></span></p>
+  <p class="detail-row"><strong class="font-semibold text-stone-900">Inicio:</strong> <span><%= l(@slot.starts_at, format: :short) %></span></p>
+  <p class="detail-row"><strong class="font-semibold text-stone-900">Fin:</strong> <span><%= l(@slot.ends_at, format: :short) %></span></p>
+</div>
+
+<%= turbo_frame_tag dom_id(@slot, :capacity) do %>
+  <%= render "slots/capacity", slot: @slot %>
+<% end %>
+
+<%= turbo_frame_tag "booking_flash" do %>
+  <% if notice.present? %>
+    <p role="status" class="flash-success"><%= notice %></p>
+  <% end %>
+  <% if alert.present? %>
+    <p role="alert" class="flash-error"><%= alert %></p>
+  <% end %>
+<% end %>
+
+<div class="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
+  <section class="card">
+    <h2 class="mb-4">Reservar</h2>
+    <%= turbo_frame_tag "booking_form" do %>
+      <%= render "slots/booking_form", slot: @slot, appointment: @appointment %>
+    <% end %>
+  </section>
+
+  <section class="card">
+    <h2 class="mb-4">Anotarse en espera</h2>
+    <%= turbo_frame_tag "waitlist_form" do %>
+      <%= render "slots/waitlist_form", slot: @slot, waitlist_entry: @waitlist_entry %>
+    <% end %>
+  </section>
+</div>
+
+<div class="mt-6 grid grid-cols-1 gap-6 lg:grid-cols-2">
+  <section class="card">
+    <h2 class="mb-4">Reservas confirmadas</h2>
+    <%= turbo_frame_tag "appointments_list" do %>
+      <%= render "slots/appointments", slot: @slot %>
+    <% end %>
+  </section>
+
+  <section class="card">
+    <h2 class="mb-4">Lista de espera</h2>
+    <%= turbo_frame_tag "waitlist_list" do %>
+      <%= render "slots/waitlist", slot: @slot %>
+    <% end %>
+  </section>
+</div>
+
+<p class="mt-6"><%= link_to "Volver a horarios", slots_path, class: "btn btn-secondary" %></p>

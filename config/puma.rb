@@ -32,4 +32,8 @@ environment ENV.fetch("RAILS_ENV") { "development" }
 pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 
 # Permitir reiniciar Puma con el comando `bin/rails restart`.
-plugin :tmp_restart
+# En Windows el plugin compara mtimes de tmp/restart.txt y el `stat` posterior al
+# write puede devolver un mtime viejo, disparando un restart en bucle que falla al
+# ejecutar `bin/rails` sin intérprete (Errno::ENOENT). Se desactiva solo ahí; en
+# desarrollo local Windows se apaga y levanta el server manualmente.
+plugin :tmp_restart unless Gem.win_platform?
