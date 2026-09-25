@@ -68,4 +68,8 @@ group :test do
   # Utilizar pruebas de sistema [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+
+  # Fijar minitest 5: Rails 7.1 es incompatible con minitest 6
+  # (Rails::TestUnit::LineFiltering#run cambia de aridad).
+  gem "minitest", "~> 5.0"
 end

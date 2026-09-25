@@ -88,5 +88,5 @@ Notas de Windows:
 
 ## Estado actual
 
-- Sin pruebas propias: solo el scaffolding de Rails (`rails test` → 0 runs).
-- `log/`, `tmp/` y `.atl/` no están versionados en commits de trabajo.
+- Pruebas de modelo para reservas, capacidad y lista de espera
+  (`bundle exec rails test`).

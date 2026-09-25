@@ -27,6 +27,9 @@ development:
 test:
   <<: *default
   database: turnos_app_test
+  # Pool amplio: parallelize usa hilos y la prueba de concurrencia
+  # genera hilos propios que necesitan conexión simultánea.
+  pool: 10
 
 # Como con config/credentials.yml, nunca guardar información sensible,
 # como la contraseña de la base, en el código fuente. Si el código es visible,
